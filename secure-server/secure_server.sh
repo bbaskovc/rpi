@@ -457,8 +457,8 @@ cat > "$TARGET_FILE" <<EOF
 Port ${SSH_PORT}
 
 # Password authentication (set SSH_DISABLE_PASSWORD_AUTH=yes to disable)
-PasswordAuthentication ${_PASS_AUTH}
-PermitEmptyPasswords   no
+PasswordAuthentication          ${_PASS_AUTH}
+PermitEmptyPasswords            no
 ChallengeResponseAuthentication no
 KbdInteractiveAuthentication    no
 
@@ -466,15 +466,15 @@ KbdInteractiveAuthentication    no
 PermitRootLogin no
 
 # Limit auth attempts and sessions
-MaxAuthTries 3
-MaxSessions  5
-LoginGraceTime 30
+MaxAuthTries   5
+MaxSessions    10
+LoginGraceTime 60
 
 # Disable legacy / insecure features
-X11Forwarding no
+X11Forwarding        no
 AllowAgentForwarding no
-AllowTcpForwarding no
-PermitTunnel no
+AllowTcpForwarding   yes
+PermitTunnel         no
 
 # Only allow strong algorithms (OpenSSH 8.x+)
 Ciphers aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,chacha20-poly1305@openssh.com
